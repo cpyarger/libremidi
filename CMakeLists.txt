@@ -45,7 +45,9 @@ else()
   set(_public PUBLIC)
 endif()
 
-target_compile_features(libremidi ${_public} cxx_std_17)
+if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_SOURCE_DIR}")
+  target_compile_features(libremidi ${_public} cxx_std_17)
+endif()
 
 find_package(Threads)
 target_link_libraries(libremidi ${_public} ${CMAKE_THREAD_LIBS_INIT})
