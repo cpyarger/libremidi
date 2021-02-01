@@ -201,7 +201,7 @@ endif()
 
 find_package(Catch2)
 if(TARGET Catch2::Catch2 AND Catch2_FOUND)
-  target_compile_features(libremidi PUBLIC cxx_std_20)
+  target_compile_features(libremidi ${_public} cxx_std_20)
 
   add_executable(midiout_test tests/unit/midi_out.cpp)
   target_link_libraries(midiout_test PRIVATE libremidi Catch2::Catch2)
